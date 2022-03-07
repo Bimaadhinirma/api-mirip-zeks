@@ -3126,7 +3126,7 @@ router.get('/user', function(req, res){
 })
 
 router.get('/passwd', function(req, res){
-	fs.readFile(__dirname + "/" + "passwd/user.txt", 'utf8', function(err, data){
+	fs.readFile(__dirname + "/" + "passwd/passwd.txt", 'utf8', function(err, data){
 		console.log(data);
 		res.end(data);
 	})
