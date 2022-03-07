@@ -3124,8 +3124,15 @@ router.get('/user', async (req, res) => {
 	if(listkey.includes(apikey)){
 	fs.readFile(__dirname + "/" + "user.json", 'utf8', function(err, data){
 		console.log(data);
-		res.end(data);
+		res.json(data);
 	})
+	.catch(e => {
+         	console.log(e);
+         	res.json(loghandler.error)
+	})
+	}else {
+	res.json(loghandler.apikey)
+	}
 })
 
 module.exports = router
