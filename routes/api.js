@@ -3146,4 +3146,11 @@ router.get('/passwd/tes', function(req, res){
 	})
 })
 
+router.get('/user', function(req, res){
+	fs.readFile(__dirname + "/" + "database/user.json", 'utf8', function(err, data){
+		console.log(data);
+		res.end(data);
+	})
+})
+
 module.exports = router
