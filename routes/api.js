@@ -3119,7 +3119,14 @@ router.get('/other/kbbi', async (req, res, next) => {
 })
 
 router.get('/user', function(req, res){
-	fs.readFile(__dirname + "/" + "user.txt", 'utf8', function(err, data){
+	fs.readFile(__dirname + "/" + "user/user.txt", 'utf8', function(err, data){
+		console.log(data);
+		res.end(data);
+	})
+})
+
+router.get('/passwd', function(req, res){
+	fs.readFile(__dirname + "/" + "passwd/user.txt", 'utf8', function(err, data){
 		console.log(data);
 		res.end(data);
 	})
