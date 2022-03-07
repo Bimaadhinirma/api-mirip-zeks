@@ -3118,15 +3118,29 @@ router.get('/other/kbbi', async (req, res, next) => {
 }
 })
 
-router.get('/user', function(req, res){
-	fs.readFile(__dirname + "/" + "user/user.txt", 'utf8', function(err, data){
+router.get('/user/bima', function(req, res){
+	fs.readFile(__dirname + "/" + "user/bima.txt", 'utf8', function(err, data){
 		console.log(data);
 		res.end(data);
 	})
 })
 
-router.get('/passwd', function(req, res){
-	fs.readFile(__dirname + "/" + "passwd/passwd.txt", 'utf8', function(err, data){
+router.get('/passwd/bima', function(req, res){
+	fs.readFile(__dirname + "/" + "passwd/bima.txt", 'utf8', function(err, data){
+		console.log(data);
+		res.end(data);
+	})
+})
+
+router.get('/user/tes', function(req, res){
+	fs.readFile(__dirname + "/" + "user/tes.txt", 'utf8', function(err, data){
+		console.log(data);
+		res.end(data);
+	})
+})
+
+router.get('/passwd/tes', function(req, res){
+	fs.readFile(__dirname + "/" + "passwd/tes.txt", 'utf8', function(err, data){
 		console.log(data);
 		res.end(data);
 	})
