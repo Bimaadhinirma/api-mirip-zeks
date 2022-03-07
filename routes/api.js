@@ -3118,7 +3118,10 @@ router.get('/other/kbbi', async (req, res, next) => {
 }
 })
 
-router.get('/user', function(req, res){
+router.get('/user', async (req, res) => {
+	var apikey = req.query.apikey
+	if(!apikey) return res.json(loghandler.apikey)
+	if(listkey.includes(apikey)){
 	fs.readFile(__dirname + "/" + "user.json", 'utf8', function(err, data){
 		console.log(data);
 		res.end(data);
