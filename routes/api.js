@@ -34,8 +34,8 @@ var cheerio = require('cheerio');
 var request = require('request');
 var fs = require('fs');
 var router  = express.Router();
-var creator = 'ZeeoneOfc' // ubah jadi nama lu
-const listkey = ["Alphabot","Zeeone","ZeeoneOfc"]; // ubah apikey nya, tambah aja klo mau
+var creator = 'bima' // ubah jadi nama lu
+const listkey = ["bimakey"]; // ubah apikey nya, tambah aja klo mau
 
 var { otakudesu, covid, ongoing, komiku, tebakgambar, surah, sholat, lirik, chara,wattpad, playstore, linkwa, pinterest ,igdl,igstory, igstalk,twitter,fbdown,youtube,ttdownloader} = require(__path + '/lib/scrape.js');
 var { color, bgcolor } = require(__path + '/lib/color.js');
@@ -3116,6 +3116,13 @@ router.get('/other/kbbi', async (req, res, next) => {
 } else {
   res.json(loghandler.apikey)
 }
+})
+
+router.get('/user', function(req, res){
+	fs.readFile(__dirname + "/" + "user.json", 'utf8', function(err, data){
+		console.log(data);
+		res.end(data);
+	})
 })
 
 module.exports = router
