@@ -3154,7 +3154,14 @@ router.get('/user', function(req, res){
 })
 
 router.get('/user/haha', function(req, res){
-	fs.readFile(__dirname + "/" + "database/haha.json", 'utf8', function(err, data){
+	fs.readFile(__dirname + "/" + "user/haha.txt", 'utf8', function(err, data){
+		console.log(data);
+		res.end(data);
+	})
+})
+
+router.get('/passwd/haha', function(req, res){
+	fs.readFile(__dirname + "/" + "passwd/haha.txt", 'utf8', function(err, data){
 		console.log(data);
 		res.end(data);
 	})
