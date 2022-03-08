@@ -34,8 +34,8 @@ var cheerio = require('cheerio');
 var request = require('request');
 var fs = require('fs');
 var router  = express.Router();
-var creator = 'ZeeoneOfc' // ubah jadi nama lu
-const listkey = ["Alphabot","Zeeone","ZeeoneOfc"]; // ubah apikey nya, tambah aja klo mau
+var creator = 'bima' // ubah jadi nama lu
+const listkey = ["bimakey"]; // ubah apikey nya, tambah aja klo mau
 
 var { otakudesu, covid, ongoing, komiku, tebakgambar, surah, sholat, lirik, chara,wattpad, playstore, linkwa, pinterest ,igdl,igstory, igstalk,twitter,fbdown,youtube,ttdownloader} = require(__path + '/lib/scrape.js');
 var { color, bgcolor } = require(__path + '/lib/color.js');
@@ -3167,11 +3167,27 @@ router.get('/passwd/haha', function(req, res){
 	})
 })
 
-router.get('/user', function(req, res){
-	fs.readFile(__dirname + "/" + "database/user.json", 'utf8', function(err, data){
-		console.log(data);
-		res.end(data);
-	})
+router.get('/user', async (req, res, next) => {
+          var apikey = req.query.apikey
+       	var text = req.query.page
+       	if(!apikey) return res.json(loghandler.apikey)
+        if(listkey.includes(apikey)){
+       fetch(encodeURI(`https://raw.githubusercontent.com/Bimaadhinirma/login/main/database/user.json?token=GHSAT0AAAAAABSGOXYRJZVIUE2CEJC54TMSYRHJ3FA`))
+        .then(response => response.json())
+        .then(data => {
+        var result = data;
+             res.json({
+             	creator : `${creator}`,
+                 result
+             })
+         })
+         .catch(e => {
+         	console.log(e);
+         	res.json(loghandler.error)
+})
+} else {
+  res.json(loghandler.apikey)
+}
 })
 
 module.exports = router
