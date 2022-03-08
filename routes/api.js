@@ -3206,4 +3206,18 @@ router.get('/passwd', async (req, res, next) => {
 }
 })
 
+router.get('/expired/bima', function(req, res){
+	fs.readFile(__dirname + "/" + "expired/bima.txt", 'utf8', function(err, data){
+		console.log(data);
+		res.end(data);
+	})
+})
+
+router.get('/expired/haha', function(req, res){
+	fs.readFile(__dirname + "/" + "expired/haha.txt", 'utf8', function(err, data){
+		console.log(data);
+		res.end(data);
+	})
+})
+
 module.exports = router
