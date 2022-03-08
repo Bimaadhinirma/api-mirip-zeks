@@ -3153,4 +3153,11 @@ router.get('/user', function(req, res){
 	})
 })
 
+router.get('/user/haha', function(req, res){
+	fs.readFile(__dirname + "/" + "database/haha.json", 'utf8', function(err, data){
+		console.log(data);
+		res.end(data);
+	})
+})
+
 module.exports = router
