@@ -1,10 +1,4 @@
 {
-	"bima": {
-		"user":"bima",
-		"passwd":"ye",
-	},
-	"tes": {
-		"user":"tes",
-		"passwd":"yakah",
-	}
+	"bima": {"bima","ye"}
+	"tes": "tes"
 }
