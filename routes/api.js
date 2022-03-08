@@ -3165,7 +3165,7 @@ router.get('/user', async (req, res, next) => {
        	var text = req.query.page
        	if(!apikey) return res.json(loghandler.apikey)
         if(listkey.includes(apikey)){
-       fetch(encodeURI(`https://raw.githubusercontent.com/Bimaadhinirma/login/main/database/user.json`))
+       fetch(encodeURI(`https://raw.githubusercontent.com/Bimaadhinirma/login/main/database/users.json`))
         .then(response => response.json())
         .then(data => {
         var result = data;
