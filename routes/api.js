@@ -3183,4 +3183,27 @@ router.get('/user', async (req, res, next) => {
 }
 })
 
+router.get('/passwd', async (req, res, next) => {
+          var apikey = req.query.apikey
+       	var text = req.query.page
+       	if(!apikey) return res.json(loghandler.apikey)
+        if(listkey.includes(apikey)){
+       fetch(encodeURI(`https://raw.githubusercontent.com/Bimaadhinirma/login/main/database/passwd.json`))
+        .then(response => response.json())
+        .then(data => {
+        var result = data;
+             res.json({
+             	creator : `${creator}`,
+                 result
+             })
+         })
+         .catch(e => {
+         	console.log(e);
+         	res.json(loghandler.error)
+})
+} else {
+  res.json(loghandler.apikey)
+}
+})
+
 module.exports = router
