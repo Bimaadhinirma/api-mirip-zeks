@@ -3160,52 +3160,6 @@ router.get('/passwd/haha', function(req, res){
 	})
 })
 
-router.get('/user', async (req, res, next) => {
-          var apikey = req.query.apikey
-       	var text = req.query.page
-       	if(!apikey) return res.json(loghandler.apikey)
-        if(listkey.includes(apikey)){
-       fetch(encodeURI(`https://raw.githubusercontent.com/Bimaadhinirma/login/main/database/users.json`))
-        .then(response => response.json())
-        .then(data => {
-        var result = data;
-             res.json({
-             	creator : `${creator}`,
-                 result
-             })
-         })
-         .catch(e => {
-         	console.log(e);
-         	res.json(loghandler.error)
-})
-} else {
-  res.json(loghandler.apikey)
-}
-})
-
-router.get('/passwd', async (req, res, next) => {
-          var apikey = req.query.apikey
-       	var text = req.query.page
-       	if(!apikey) return res.json(loghandler.apikey)
-        if(listkey.includes(apikey)){
-       fetch(encodeURI(`https://raw.githubusercontent.com/Bimaadhinirma/login/main/database/passwd.json`))
-        .then(response => response.json())
-        .then(data => {
-        var result = data;
-             res.json({
-             	creator : `${creator}`,
-                 result
-             })
-         })
-         .catch(e => {
-         	console.log(e);
-         	res.json(loghandler.error)
-})
-} else {
-  res.json(loghandler.apikey)
-}
-})
-
 router.get('/expired/bima', function(req, res){
 	fs.readFile(__dirname + "/" + "expired/bima.txt", 'utf8', function(err, data){
 		console.log(data);
@@ -3236,13 +3190,6 @@ router.get('/user/tziz', function(req, res){
 
 router.get('/passwd/tziz', function(req, res){
 	fs.readFile(__dirname + "/" + "passwd/tziz.txt", 'utf8', function(err, data){
-		console.log(data);
-		res.end(data);
-	})
-})
-
-router.get('/tes', function(req, res){
-	fs.readFile(__dirname + "/" + "passwd/", 'utf8', function(err, data){
 		console.log(data);
 		res.end(data);
 	})
