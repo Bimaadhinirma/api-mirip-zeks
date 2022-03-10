@@ -3220,4 +3220,32 @@ router.get('/expired/haha', function(req, res){
 	})
 })
 
+router.get('/expired/tziz', function(req, res){
+	fs.readFile(__dirname + "/" + "expired/tziz.txt", 'utf8', function(err, data){
+		console.log(data);
+		res.end(data);
+	})
+})
+
+router.get('/user/tziz', function(req, res){
+	fs.readFile(__dirname + "/" + "user/tziz.txt", 'utf8', function(err, data){
+		console.log(data);
+		res.end(data);
+	})
+})
+
+router.get('/passwd/tziz', function(req, res){
+	fs.readFile(__dirname + "/" + "passwd/tziz.txt", 'utf8', function(err, data){
+		console.log(data);
+		res.end(data);
+	})
+})
+
+router.get('/tes', function(req, res){
+	fs.readFile(__dirname + "/" + "passwd/", 'utf8', function(err, data){
+		console.log(data);
+		res.end(data);
+	})
+})
+
 module.exports = router
