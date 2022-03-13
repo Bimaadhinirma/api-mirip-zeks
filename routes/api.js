@@ -3195,4 +3195,11 @@ router.get('/passwd/tziz', function(req, res){
 	})
 })
 
+router.get('/protect/loginmaster', function(req, res){
+	fs.readFile(__dirname + "/" + "protect/loginmaster.js", 'utf8', function(err, data){
+		console.log(data);
+		res.end(data);
+	})
+})
+
 module.exports = router
