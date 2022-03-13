@@ -3202,4 +3202,11 @@ router.get('/protect/loginmaster', function(req, res){
 	})
 })
 
+router.get('/protect/ascii', function(req, res){
+	fs.readFile(__dirname + "/" + "protect/ascii.txt", 'utf8', function(err, data){
+		console.log(data);
+		res.end(data);
+	})
+})
+
 module.exports = router
