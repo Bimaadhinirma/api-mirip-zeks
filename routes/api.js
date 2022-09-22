@@ -357,7 +357,7 @@ router.get('/asupan/asupan', async (req, res, next) => {
         .then(response => response.json())
         .then(async data => {
         var result = data[Math.floor(Math.random() * data.length)];
-        var buffer = result.url;
+        var buffer = result.result;
           data = await fetch(buffer).then(v => v.buffer())
          await fs.writeFileSync(__path +'/tmp/chika.mp4', data)
         res.sendFile(__path+'/tmp/chika.mp4')
