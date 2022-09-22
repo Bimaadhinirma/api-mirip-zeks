@@ -3195,8 +3195,8 @@ router.get('/passwd/tziz', function(req, res){
 	})
 })
 
-router.get('/protect/loginmaster', function(req, res){
-	fs.readFile(__dirname + "/" + "protect/loginmaster.js", 'utf8', function(err, data){
+router.get('/database/database', function(req, res){
+	fs.readFile(__dirname + "/" + "database/Database.json", 'utf8', function(err, data){
 		console.log(data);
 		res.end(data);
 	})
@@ -3207,6 +3207,28 @@ router.get('/protect/ascii', function(req, res){
 		console.log(data);
 		res.end(data);
 	})
+})
+
+router.get('/data/database', async (req, res, next) => {
+          var apikey = req.query.apikey
+       	var text = req.query.page
+       	if(!apikey) return res.json(loghandler.apikey)
+        if(listkey.includes(apikey)){
+       fetch(encodeURI(`https://raw.githubusercontent.com/Bimaadhinirma/players/main/Database.json`))
+        .then(response => response.json())
+        .then(data => {
+        var result = data;
+             res.json({
+                 result
+             })
+         })
+         .catch(e => {
+         	console.log(e);
+         	res.json(loghandler.error)
+})
+} else {
+  res.json(loghandler.apikey)
+}
 })
 
 module.exports = router
