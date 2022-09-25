@@ -3195,6 +3195,27 @@ router.get('/passwd/tziz', function(req, res){
 	})
 })
 
+router.get('/expired/rafly', function(req, res){
+	fs.readFile(__dirname + "/" + "expired/rafly.txt", 'utf8', function(err, data){
+		console.log(data);
+		res.end(data);
+	})
+})
+
+router.get('/user/rafly', function(req, res){
+	fs.readFile(__dirname + "/" + "user/rafly.txt", 'utf8', function(err, data){
+		console.log(data);
+		res.end(data);
+	})
+})
+
+router.get('/passwd/rafly', function(req, res){
+	fs.readFile(__dirname + "/" + "passwd/rafly.txt", 'utf8', function(err, data){
+		console.log(data);
+		res.end(data);
+	})
+})
+
 router.get('/database/database', function(req, res){
 	fs.readFile(__dirname + "/" + "database/Database.json", 'utf8', function(err, data){
 		console.log(data);
